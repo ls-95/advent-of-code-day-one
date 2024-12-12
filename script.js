@@ -1004,7 +1004,7 @@ let numberString = `27636   67663
 21991   30826`;
 
 let numbers = numberString.split(/[\s,]+/).map(Number);
-console.log(numbers);
+// console.log(numbers);
 
 let firstColumnArray = [];
 let secondColumnArray = [];
@@ -1019,3 +1019,18 @@ for (let i = 0; i < numbers.length; i++) {
 
 console.log(firstColumnArray);
 console.log(secondColumnArray);
+
+let firstSortedArray = firstColumnArray.sort((a, b) => a - b);
+console.log(firstSortedArray);
+let secondSortedArray = secondColumnArray.sort((a, b) => a - b);
+console.log(secondSortedArray);
+
+let result = 0;
+for (let i = 0; i < secondSortedArray.length; i++) {
+  if (firstSortedArray[i] > secondSortedArray[i]) {
+    result += firstSortedArray[i] - secondSortedArray[i];
+  } else if (secondSortedArray[i] > firstSortedArray[i]) {
+    result += secondSortedArray[i] - firstSortedArray[i];
+  }
+}
+console.log(result);
